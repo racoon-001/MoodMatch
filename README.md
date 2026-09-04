@@ -10,6 +10,17 @@ Instead of simply asking an AI to suggest movie titles, MoodMatch uses Gemini to
 
 **[Try MoodMatch](https://moodmatch-fqaxlga5k-ishika-b77f.vercel.app/)**
 
+### 📲 Install MoodMatch as a PWA
+
+MoodMatch is a **Progressive Web App (PWA)** and can be installed like a native application on supported browsers.
+
+1. Open the live MoodMatch website.
+2. Use your browser's **Install** option.
+3. Install MoodMatch on your device.
+4. Launch it as a standalone app with the MoodMatch icon.
+
+> 💡 On supported browsers, the **Install** option may appear in the browser's address bar or menu.
+
 ## ✨ Features
 
 ### 🤖 AI-Powered Mood Analysis
