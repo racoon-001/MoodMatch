@@ -431,19 +431,7 @@ MoodMatch includes several reliability mechanisms:
 
 ---
 
-## 📌 Future Improvements
 
-Potential future improvements include:
-
-- GitHub Actions CI/CD workflow
-- Automated tests
-- Improved recommendation learning from watchlist behavior
-- More advanced personalization
-- Additional streaming platforms and regions
-- Recommendation history
-- Enhanced analytics
-
----
 
 ## 📚 Credits
 
