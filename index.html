@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        MoodMatch | Find Your Next Watch
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+<link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#D946A8">
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MoodMatch<span>.</span>
+            </div>
+            <button
+    id="mobile-menu-toggle"
+    class="mobile-menu-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+            <div class="nav-links">
+
+          <a href="#" class="active">
+    Home
+</a>
+
+<a
+    href="#moods"
+    id="genres-nav-link"
+>
+    Genres
+</a>
+
+<a
+    href="#emotion"
+    id="mood-nav-link"
+>
+    Your Mood
+</a>
+
+<a
+    href="#watchlist"
+    id="watchlist-nav-link"
+>
+    My Watchlist
+</a>
+
+<a
+    href="#auth"
+    id="account-nav-link"
+>
+    Account
+</a>
+
+            </div>
+
+        </nav>
+
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                YOUR MOOD. YOUR MATCH.
+            </p>
+
+
+            <h1>
+
+                What are you<br>
+
+                <span>
+                    in the mood
+                </span>
+
+                for?
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Tell us what you want to watch and we'll find
+                something worth your time.
+
+            </p>
+
+
+            <a
+                href="#moods"
+                class="start-button"
+            >
+                Find My Match ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =========================
+             AUTHENTICATION
+        ========================== -->
+
+        <section
+    class="auth-section"
+    id="auth"
+>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <!-- ACCOUNT HEADER -->
+
+            <div class="auth-header">
+
+                <div class="auth-icon">
+                    🎬
+                </div>
+
+                <h2>
+                    Welcome to MoodMatch
+                </h2>
+
+                <p>
+                    Sign in to unlock personalized recommendations,
+                    save your watchlist, and discover what to watch next.
+                </p>
+
+            </div>
+
+
+            <!-- AUTH TABS -->
+
+            <div class="auth-tabs">
+
+                <button
+                    id="login-tab"
+                    class="auth-tab active"
+                    type="button"
+                >
+                    Login
+                </button>
+
+
+                <button
+                    id="signup-tab"
+                    class="auth-tab"
+                    type="button"
+                >
+                    Sign Up
+                </button>
+
+            </div>
+
+
+            <!-- AUTH FORM -->
+
+            <form id="auth-form">
+
+                <!-- EMAIL -->
+
+                <div class="auth-field">
+
+                    <label for="auth-email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="auth-email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="auth-field">
+
+                    <label for="auth-password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="auth-password"
+                        placeholder="Enter your password"
+                        minlength="6"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    id="auth-submit"
+                    class="auth-submit"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- LOGGED-IN STATE -->
+
+<div
+    id="logged-in-user"
+    class="logged-in-user"
+    style="display: none;"
+>
+
+    <div class="logged-in-avatar">
+        ✓
+    </div>
+
+    <p class="logged-in-eyebrow">
+        MOODMATCH MEMBER
+    </p>
+
+    <h3>
+        Welcome back! 🎬
+    </h3>
+
+    <p class="logged-in-subtitle">
+        Your MoodMatch account is active.
+    </p>
+
+    <div class="logged-in-email-box">
+
+        <span class="logged-in-email-label">
+            Signed in as
+        </span>
+
+        <strong id="user-email"></strong>
+
+    </div>
+
+    <div class="account-features">
+
+        <div class="account-feature">
+            <span>🎯</span>
+            <p>Personalized recommendations</p>
+        </div>
+
+        <div class="account-feature">
+            <span>🤖</span>
+            <p>AI mood matching</p>
+        </div>
+
+        <div class="account-feature">
+            <span>🔖</span>
+            <p>Personal watchlist</p>
+        </div>
+
+    </div>
+
+    <button
+        id="logout-button"
+        class="auth-submit"
+        type="button"
+    >
+        Logout
+    </button>
+
+</div>
+
+
+            <!-- AUTH MESSAGE -->
+
+            <p
+                id="auth-message"
+                class="auth-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- =========================
+             MY WATCHLIST
+        ========================== -->
+
+        <section
+            class="recommendation-section watchlist-section"
+            id="watchlist"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    YOUR COLLECTION
+                </p>
+
+
+                <h2>
+                    My Watchlist
+                </h2>
+
+
+                <p>
+                    Movies and series you've saved to watch later.
+                </p>
+
+            </div>
+
+
+
+            <!-- WATCHLIST GRID -->
+
+            <div
+                id="watchlist-grid"
+                class="movie-grid"
+            >
+
+                <!-- Saved movies and series appear here -->
+
+            </div>
+
+
+
+            <!-- EMPTY WATCHLIST MESSAGE -->
+
+            <div
+                id="watchlist-empty"
+                class="watchlist-empty"
+                style="display: none;"
+            >
+
+                <div class="watchlist-empty-icon">
+                    🎬
+                </div>
+
+
+                <h3>
+                    Your watchlist is empty
+                </h3>
+
+
+                <p>
+                    Save movies and series from your recommendations
+                    and they'll appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+<div
+    id="login-required-message"
+    class="login-required-message"
+>
+    <div class="login-required-icon">
+        🔐
+    </div>
+
+    <p class="eyebrow">MEMBERS ONLY</p>
+
+    <h2>Login to unlock MoodMatch</h2>
+
+    <p>
+        Create an account or login to discover movies,
+        explore genres, use AI mood recommendations,
+        and build your personal watchlist.
+    </p>
+
+    <a href="#auth" class="start-button">
+        Login / Sign Up
+    </a>
+</div>
+
+        <!-- =========================
+             GENRE SECTION
+        ========================== -->
+
+        <section
+            class="mood-section"
+            id="moods"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    STEP 01
+                </p>
+
+
+                <h2>
+                    Choose your genre
+                </h2>
+
+
+                <p>
+                    Pick the kind of story you're in the mood for.
+                </p>
+
+            </div>
+
+
+
+            <div class="mood-grid">
+
+
+                <!-- ACTION -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        ⚔️
+                    </span>
+
+                    <span class="mood-name">
+                        Action
+                    </span>
+
+                    <span class="mood-description">
+                        High-stakes risks, chases & combat
+                    </span>
+
+                </button>
+
+
+
+                <!-- ADVENTURE -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🗺️
+                    </span>
+
+                    <span class="mood-name">
+                        Adventure
+                    </span>
+
+                    <span class="mood-description">
+                        Journeys, exploration & quests
+                    </span>
+
+                </button>
+
+
+
+                <!-- COMEDY -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        😂
+                    </span>
+
+                    <span class="mood-name">
+                        Comedy
+                    </span>
+
+                    <span class="mood-description">
+                        Humor, witty situations & fun
+                    </span>
+
+                </button>
+
+
+
+                <!-- CRIME -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🕵️
+                    </span>
+
+                    <span class="mood-name">
+                        Crime
+                    </span>
+
+                    <span class="mood-description">
+                        Criminals, investigations & justice
+                    </span>
+
+                </button>
+
+
+
+                <!-- DRAMA -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🎭
+                    </span>
+
+                    <span class="mood-name">
+                        Drama
+                    </span>
+
+                    <span class="mood-description">
+                        Emotional struggles & relationships
+                    </span>
+
+                </button>
+
+
+
+                <!-- FANTASY -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🧙
+                    </span>
+
+                    <span class="mood-name">
+                        Fantasy
+                    </span>
+
+                    <span class="mood-description">
+                        Magic, myths & supernatural worlds
+                    </span>
+
+                </button>
+
+
+
+                <!-- HORROR -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        👻
+                    </span>
+
+                    <span class="mood-name">
+                        Horror
+                    </span>
+
+                    <span class="mood-description">
+                        Fear, dread & terrifying forces
+                    </span>
+
+                </button>
+
+
+
+                <!-- MUSICAL -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🎵
+                    </span>
+
+                    <span class="mood-name">
+                        Musical
+                    </span>
+
+                    <span class="mood-description">
+                        Stories told through song & dance
+                    </span>
+
+                </button>
+
+
+
+                <!-- MYSTERY -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🔍
+                    </span>
+
+                    <span class="mood-name">
+                        Mystery
+                    </span>
+
+                    <span class="mood-description">
+                        Clues, puzzles & hidden truths
+                    </span>
+
+                </button>
+
+
+
+                <!-- ROMANCE -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        ❤️
+                    </span>
+
+                    <span class="mood-name">
+                        Romance
+                    </span>
+
+                    <span class="mood-description">
+                        Love, chemistry & relationships
+                    </span>
+
+                </button>
+
+
+
+                <!-- SCIENCE FICTION -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        🚀
+                    </span>
+
+                    <span class="mood-name">
+                        Science Fiction
+                    </span>
+
+                    <span class="mood-description">
+                        Future worlds & advanced technology
+                    </span>
+
+                </button>
+
+
+
+                <!-- THRILLER -->
+
+                <button
+                    class="mood-card"
+                    type="button"
+                >
+
+                    <span class="mood-icon">
+                        😨
+                    </span>
+
+                    <span class="mood-name">
+                        Thriller
+                    </span>
+
+                    <span class="mood-description">
+                        Suspense, danger & rising tension
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EMOTION SECTION
+        ========================== -->
+
+        <section
+            class="emotion-section"
+            id="emotion"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    OR TELL US
+                </p>
+
+
+                <h2>
+                    How are you feeling?
+                </h2>
+
+
+                <p>
+                    Describe your mood, your day, or exactly what
+                    you're looking for. Be as specific as you want.
+                </p>
+
+            </div>
+
+
+
+            <div class="emotion-box">
+
+                <textarea
+                    id="emotion-input"
+                    placeholder="Tell us what's on your mind...
+
+For example: I've had a really stressful week and just want something funny and comforting that I can watch without thinking too much."
+                    maxlength="500"
+                ></textarea>
+
+
+                <div class="emotion-footer">
+
+                    <span id="character-count">
+                        0 / 500
+                    </span>
+
+
+                    <button
+                        id="emotion-button"
+                        type="button"
+                    >
+                        Find My Match →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RECOMMENDATIONS
+        ========================== -->
+
+        <section
+            class="recommendation-section"
+            id="recommendations"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    STEP 02
+                </p>
+
+
+                <h2>
+                    Your matches
+                </h2>
+
+
+                <p>
+                    Recommendations based on your mood and genre
+                    preferences. Click on a title to learn more about it.
+                </p>
+
+            </div>
+
+
+
+            <!-- CONTENT TYPE FILTER -->
+
+            <div class="content-filters">
+
+
+                <button
+                    class="content-filter active"
+                    data-type="all"
+                    type="button"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="content-filter"
+                    data-type="Movie"
+                    type="button"
+                >
+                    🎬 Movies
+                </button>
+
+
+                <button
+                    class="content-filter"
+                    data-type="Series"
+                    type="button"
+                >
+                    📺 Series
+                </button>
+
+
+                <button
+                    class="content-filter"
+                    data-type="Anime"
+                    type="button"
+                >
+                    🍿 Anime
+                </button>
+
+
+                <button
+                    class="content-filter"
+                    data-type="KDrama"
+                    type="button"
+                >
+
+                    <img
+                        src="kr-flag.svg"
+                        alt="South Korea"
+                        class="country-flag"
+                    >
+
+                    K-Dramas
+
+                </button>
+
+            </div>
+
+
+
+            <!-- MOVIE GRID -->
+
+            <div
+                id="movie-grid"
+                class="movie-grid"
+            >
+
+                <!-- Recommendations appear here -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Made with 🎬 for movie lovers.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         MOVIE DETAILS MODAL
+    ========================== -->
+
+    <div
+        id="movie-modal"
+        class="movie-modal"
+    >
+
+        <div class="movie-modal-content">
+
+
+            <button
+                id="close-modal"
+                class="close-modal"
+                aria-label="Close"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div id="movie-details">
+
+                <!-- Movie details appear here -->
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <!-- Supabase SDK -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- Supabase Client -->
+
+    <script src="supabase-client.js"></script>
+
+
+    <!-- Main Application -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
